@@ -18,7 +18,28 @@ public class FruitController : MonoBehaviour
             otherFruit.isMerging = true; 
 
             MergeFruits(otherFruit);
-            ScoreManager.instance.AddScore(1);
+            if (fruitLevel == 0 || fruitLevel == 1 || fruitLevel == 2)
+            {
+                ScoreManager.instance.AddScore(1);
+            }
+            else if (fruitLevel == 3 || fruitLevel == 4)
+            {
+                ScoreManager.instance.AddScore(2);
+            }
+            else if (fruitLevel == 5)
+            {
+                ScoreManager.instance.AddScore(3);
+            }
+            else if (fruitLevel == 6)
+            {
+                ScoreManager.instance.AddScore(4);
+            }
+            else
+            {
+                ScoreManager.instance.AddScore(5);
+            }
+
+
         }
     }
 
