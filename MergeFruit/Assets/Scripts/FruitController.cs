@@ -2,55 +2,39 @@ using UnityEngine;
 
 public class FruitController : MonoBehaviour
 {
-    public string fruitType; // Fruit type (e.g., "Apple", "Orange")
-    public int sizeLevel = 1; // Size level (smallest = 1, medium = 2, large = 3)
+    public int fruitLevel; 
+    private bool isMerging = false;
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Debug log to check collision
-        Debug.Log("Collision detected with: " + other.gameObject.name);
+        if (isMerging) return; 
 
-        // Check if this fruit collided with another fruit of the same type and size
-        if (other.gameObject.CompareTag("Fruit"))
+        FruitController otherFruit = collision.gameObject.GetComponent<FruitController>();
+
+       
+        if (otherFruit != null && otherFruit.fruitLevel == fruitLevel)
         {
-            FruitController otherFruit = other.gameObject.GetComponent<FruitController>();
-            if (otherFruit != null && otherFruit.fruitType == fruitType)
-            {
-                Debug.Log("Fruits merged: " + fruitType + " -> New size level: " + (sizeLevel + 1));
-                // Merge the two fruits into a bigger one
-                MergeFruits(other.gameObject);
-            }
+            isMerging = true;
+            otherFruit.isMerging = true; 
+
+            MergeFruits(otherFruit);
         }
     }
 
-    void MergeFruits(GameObject otherFruit)
+    void MergeFruits(FruitController otherFruit)
     {
-        // Remove the current and other fruit
-        Destroy(otherFruit);
+        Debug.Log("Merging Fruit Level: " + fruitLevel); 
+        Destroy(otherFruit.gameObject);
         Destroy(gameObject);
 
-        // Create a new larger fruit (based on sizeLevel)
-        GameObject newFruit = Instantiate(fruitPrefab(sizeLevel + 1), transform.position, Quaternion.identity);
-        newFruit.GetComponent<Rigidbody2D>().gravityScale = 0; // Stop it from falling immediately
+        
+        GameObject nextFruitPrefab = FruitSpawner.instance.GetNextFruitPrefab(fruitLevel + 1);
 
-        Debug.Log("New fruit spawned: " + newFruit.name);
+        if (nextFruitPrefab != null) 
+        {
+            GameObject newFruit = Instantiate(nextFruitPrefab, transform.position, Quaternion.identity);
+            newFruit.GetComponent<Rigidbody2D>().velocity = Vector2.down * 4f; 
+        }
     }
 
-    // This function should return the prefab of the fruit based on sizeLevel
-    GameObject fruitPrefab(int level)
-    {
-        // Modify this part to return the correct prefab based on level
-        if (level == 2)
-        {
-            Debug.Log("Returning larger fruit prefab (level 2)");
-            return FruitSpawner.instance.fruitPrefabs[1]; // Larger fruit prefab
-        }
-        if (level == 3)
-        {
-            Debug.Log("Returning even larger fruit prefab (level 3)");
-            return FruitSpawner.instance.fruitPrefabs[2]; // Even larger fruit prefab
-        }
-        Debug.Log("Returning smallest fruit prefab (level 1)");
-        return FruitSpawner.instance.fruitPrefabs[0]; // Default smallest fruit
-    }
 }

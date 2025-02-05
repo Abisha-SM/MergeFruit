@@ -149,7 +149,7 @@ Transform:
   m_GameObject: {fileID: 393000941}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.23, y: 1.02, z: 0}
+  m_LocalPosition: {x: 9.6, y: 33.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -524,7 +524,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 49
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -582,7 +582,7 @@ Transform:
   m_GameObject: {fileID: 992299163}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: 29.3, z: 0}
+  m_LocalPosition: {x: 3, y: 28.98, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -659,7 +659,7 @@ Transform:
   m_GameObject: {fileID: 1001027544}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.79, y: 1.02, z: 0}
+  m_LocalPosition: {x: 5.03, y: 33.53, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -736,7 +736,7 @@ Transform:
   m_GameObject: {fileID: 1116310202}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 9.6, z: 0}
+  m_LocalPosition: {x: 3.02, y: 38.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -943,9 +943,7 @@ MonoBehaviour:
   - {fileID: 6039488250131380607, guid: 006c1c8d6a4bc47229983542049d0fb1, type: 3}
   - {fileID: 3899292796011442927, guid: 7108a853f61ba4242ad66424208f3d6f, type: 3}
   - {fileID: 1683892143611584668, guid: 5c8595709f7ad49a4bcfcecba9c2e554, type: 3}
-  - {fileID: 611489910720581097, guid: 71186e27dabbc485981f0e6b10d8a419, type: 3}
   - {fileID: 405162560025886294, guid: c0d58b992e68b46259347d5568f7a59f, type: 3}
-  - {fileID: 8372171728992366321, guid: 9b382b17fce5b4a8cb23777098a2c645, type: 3}
   - {fileID: 7821498520356116695, guid: 097748650244f43fbaba540f36256fad, type: 3}
   - {fileID: 6263256913761253715, guid: db71957c101294168a4a18694a32cb44, type: 3}
   - {fileID: 9128181752598554351, guid: 3708196d0eff5441693af08722788432, type: 3}

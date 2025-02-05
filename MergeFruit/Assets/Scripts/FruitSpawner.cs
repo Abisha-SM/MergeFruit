@@ -2,26 +2,28 @@ using UnityEngine;
 
 public class FruitSpawner : MonoBehaviour
 {
-    public static FruitSpawner instance; // Singleton instance
-    public GameObject[] fruitPrefabs; // Array of fruit prefabs
-
-    private GameObject currentFruit;  // The fruit ready to be dropped
+    public static FruitSpawner instance;
+    public GameObject[] fruitPrefabs;
+    private Camera mainCamera;
+    private GameObject currentFruit;
+    public float fallSpeed = 3f; 
+    public float speedIncreaseRate = 3f; 
 
     void Awake()
     {
-        // Ensure there's only one instance of FruitSpawner
         if (instance == null)
         {
             instance = this;
         }
         else
         {
-            Destroy(gameObject); // Destroy duplicates if any
+            Destroy(gameObject);
         }
     }
 
     void Start()
     {
+        mainCamera = Camera.main;
         SpawnFruit();
     }
 
@@ -29,11 +31,10 @@ public class FruitSpawner : MonoBehaviour
     {
         if (currentFruit != null)
         {
-            // Move fruit with player's mouse or touch
-            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+            mousePos.x = Mathf.Clamp(mousePos.x, 0.5f, 4f);
             currentFruit.transform.position = new Vector2(mousePos.x, transform.position.y);
 
-            // Drop fruit when clicked
             if (Input.GetMouseButtonDown(0))
             {
                 DropFruit();
@@ -45,13 +46,28 @@ public class FruitSpawner : MonoBehaviour
     {
         int randomIndex = Random.Range(0, fruitPrefabs.Length);
         currentFruit = Instantiate(fruitPrefabs[randomIndex], transform.position, Quaternion.identity);
-        currentFruit.GetComponent<Rigidbody2D>().gravityScale = 0; // Keep fruit floating
+        currentFruit.GetComponent<Rigidbody2D>().gravityScale = 0;
     }
 
     void DropFruit()
     {
-        currentFruit.GetComponent<Rigidbody2D>().gravityScale = 1; // Enable gravity
+        Rigidbody2D rb = currentFruit.GetComponent<Rigidbody2D>();
+        rb.gravityScale = fallSpeed; 
+        fallSpeed += speedIncreaseRate; 
         currentFruit = null;
-        Invoke("SpawnFruit", 0.5f); // Spawn new fruit after a delay
+        Invoke("SpawnFruit", 1f);
+    }
+
+    public GameObject GetNextFruitPrefab(int nextLevel)
+    {
+        if (nextLevel < fruitPrefabs.Length)
+        {
+            return fruitPrefabs[nextLevel];
+        }
+        else
+        {
+            Debug.LogWarning("No bigger fruit available for level: " + nextLevel);
+            return null;
+        }
     }
 }
