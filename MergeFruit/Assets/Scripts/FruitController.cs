@@ -18,6 +18,7 @@ public class FruitController : MonoBehaviour
             otherFruit.isMerging = true; 
 
             MergeFruits(otherFruit);
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.mergeSound);
             if (fruitLevel == 0 || fruitLevel == 1 || fruitLevel == 2)
             {
                 ScoreManager.instance.AddScore(1);

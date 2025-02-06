@@ -47,6 +47,7 @@ public class FruitSpawner : MonoBehaviour
         int randomIndex = Random.Range(0, fruitPrefabs.Length);
         currentFruit = Instantiate(fruitPrefabs[randomIndex], transform.position, Quaternion.identity);
         currentFruit.GetComponent<Rigidbody2D>().gravityScale = 0;
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.spawnSound);
     }
 
     void DropFruit()
@@ -55,7 +56,9 @@ public class FruitSpawner : MonoBehaviour
         rb.gravityScale = fallSpeed; 
         fallSpeed += speedIncreaseRate; 
         currentFruit = null;
+       // AudioManager.Instance.PlaySFX(AudioManager.Instance.dropSound);
         Invoke("SpawnFruit", 1f);
+        
     }
 
     public GameObject GetNextFruitPrefab(int nextLevel)
