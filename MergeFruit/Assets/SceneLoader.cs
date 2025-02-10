@@ -15,6 +15,6 @@ public class SceneLoader : MonoBehaviour
 
     private void SwithScene()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 }
