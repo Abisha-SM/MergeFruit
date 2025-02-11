@@ -29,7 +29,7 @@ public class GoogleLogin : MonoBehaviour
 {
 
     public Text statusText;
-    public string webClientId = "911369172066-3jmp1mqjif188j30usr2v9pvv2t4p5ie.apps.googleusercontent.com";
+    public string webClientId = "911369172066-mogdn1gtech6qq4404qi6tmcq40vlgf6.apps.googleusercontent.com";
     private GoogleSignInConfiguration configuration;
     private string localDataPath;
     public static GoogleLogin instance;
