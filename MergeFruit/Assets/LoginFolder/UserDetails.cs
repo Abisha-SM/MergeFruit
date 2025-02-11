@@ -43,18 +43,18 @@ public class UserDetails : MonoBehaviour
 
     private void Start()
     {
-       // if (GoogleLogin.instance.googleLoginbool == true)
-       // {
-           // GSignIn();
-       // }
-       // else if (FaceBookLogin.instance.FBLoginbool == true)
-       // {
-        //    FBSignIn();
-       // }
-       // else if (GuestLoginManager.instance.guestLoginbool == true)
-       // {
+        if (GoogleLogin.instance.googleLoginbool == true)
+        {
+            GSignIn();
+        }
+        else if (FaceBookLogin.instance.FBLoginbool == true)
+        {
+            FBSignIn();
+        }
+        else if (GuestLogin.instance.guestLoginbool == true)
+        {
             GuestIN();
-       // }
+        }
     }
 
     void GSignIn()
@@ -62,9 +62,9 @@ public class UserDetails : MonoBehaviour
         gProfilepic.gameObject.SetActive(true);
         fProfilepic.gameObject.SetActive(false);
         guestProfilepic.gameObject.SetActive(false);
-       // Name = GoogleLogin.instance.username;
+        Name = GoogleLogin.instance.username;
         userName.text = Name;
-      //  UserProfile = GoogleLogin.instance._profilePic;
+        UserProfile = GoogleLogin.instance._profilePic;
         Debug.LogError("userImage2");
         gProfilepic.sprite = UserProfile;
     }
@@ -74,9 +74,9 @@ public class UserDetails : MonoBehaviour
         fProfilepic.gameObject.SetActive(true);
         gProfilepic.gameObject.SetActive(false);
         guestProfilepic.gameObject.SetActive(false);
-      //  Name = FaceBookLogin.instance.Name;
+        Name = FaceBookLogin.instance.Name;
         userName.text = Name;
-       // UserProfile2 = FaceBookLogin.instance.fbProfilepicTexture;
+        UserProfile2 = FaceBookLogin.instance.fbProfilepicTexture;
         fProfilepic.texture = UserProfile2;
     }
 
@@ -92,18 +92,18 @@ public class UserDetails : MonoBehaviour
 
     public void LogOutButtonClk()
     {
-       // if (GoogleLogin.instance.googleLoginbool == true)
-       // {
-        //    GoogleLogin.instance.OnSignOut();
-       // }
-       // else if (FaceBookLogin.instance.FBLoginbool == true)
-       // {
-       //     FaceBookLogin.instance.Facebook_LogOut();
-       // }
-       // else
-       // {
+        if (GoogleLogin.instance.googleLoginbool == true)
+        {
+            GoogleLogin.instance.OnSignOut();
+        }
+        else if (FaceBookLogin.instance.FBLoginbool == true)
+        {
+            FaceBookLogin.instance.Facebook_LogOut();
+        }
+        else
+        {
             GuestLogin.instance.OnLogoutButtonClick();
-       // }
+        }
     }
 
 }

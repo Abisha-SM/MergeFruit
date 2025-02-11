@@ -20,7 +20,7 @@ public class UserLogin : MonoBehaviour
 
     void GLogin()
     {
-       // GoogleLogin.instance.OnSignIn();
+        GoogleLogin.instance.OnSignIn();
     }
 
     void FBLogin()
