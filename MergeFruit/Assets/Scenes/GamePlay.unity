@@ -180,13 +180,14 @@ GameObject:
   - component: {fileID: 141523191}
   - component: {fileID: 141523193}
   - component: {fileID: 141523192}
+  - component: {fileID: 141523194}
   m_Layer: 0
   m_Name: WarningLine
   m_TagString: GameOverLine
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &141523191
 Transform:
   m_ObjectHideFlags: 0
@@ -299,6 +300,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 9.38, y: 0.6619339}
   m_EdgeRadius: 0
+--- !u!114 &141523194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141523190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f51d8e32ec20044c293588fa2a23ac02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &223948047
 GameObject:
   m_ObjectHideFlags: 0
@@ -1660,8 +1673,6 @@ MonoBehaviour:
   - {fileID: 7821498520356116695, guid: 097748650244f43fbaba540f36256fad, type: 3}
   - {fileID: 6263256913761253715, guid: db71957c101294168a4a18694a32cb44, type: 3}
   - {fileID: 9128181752598554351, guid: 3708196d0eff5441693af08722788432, type: 3}
-  fallSpeed: 3
-  speedIncreaseRate: 3
 --- !u!4 &1665787281
 Transform:
   m_ObjectHideFlags: 0

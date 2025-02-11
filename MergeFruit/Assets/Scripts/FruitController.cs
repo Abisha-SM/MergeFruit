@@ -6,11 +6,22 @@ public class FruitController : MonoBehaviour
     private bool isMerging = false;
     private Rigidbody2D rb;
 
+    private bool isSettled = false;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = Vector2.down * 4f;  // Ensure immediate fall speed
+        rb.velocity = Vector2.down * 4f;
     }
+
+    private void Update()
+    {
+        if (rb.velocity.magnitude < 0.1f && !isMerging) // When fruit stops moving
+        {
+            gameObject.tag = "SettledFruit"; // Change tag to SettledFruit
+        }
+    }
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -41,7 +52,7 @@ public class FruitController : MonoBehaviour
         if (nextFruitPrefab != null)
         {
             GameObject newFruit = Instantiate(nextFruitPrefab, transform.position, Quaternion.identity);
-            newFruit.GetComponent<Rigidbody2D>().velocity = Vector2.down * 6f;  // Faster falling speed
+            newFruit.GetComponent<Rigidbody2D>().velocity = Vector2.down * 6f;
         }
     }
 }
