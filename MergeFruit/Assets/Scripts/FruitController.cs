@@ -16,9 +16,9 @@ public class FruitController : MonoBehaviour
 
     private void Update()
     {
-        if (rb.velocity.magnitude < 0.1f && !isMerging) // When fruit stops moving
+        if (rb.velocity.magnitude < 0.1f && !isMerging) 
         {
-            gameObject.tag = "SettledFruit"; // Change tag to SettledFruit
+            gameObject.tag = "SettledFruit"; 
         }
     }
 

@@ -1,11 +1,11 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class GameOverManager : MonoBehaviour
 {
     public void RestartGame()
     {
-        Time.timeScale = 1; // Resume the game
-        SceneManager.LoadScene("Main Scene"); // Restart scene
+        Time.timeScale = 1; 
+        SceneManager.LoadScene("Main Scene"); 
     }
 }
