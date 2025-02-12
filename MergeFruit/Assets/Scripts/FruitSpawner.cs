@@ -6,9 +6,7 @@ public class FruitSpawner : MonoBehaviour
     public GameObject[] fruitPrefabs;
     private Camera mainCamera;
     private GameObject currentFruit;
-    public float fallSpeed = 3f; 
-    public float speedIncreaseRate = 3f; 
-
+    
     void Awake()
     {
         if (instance == null)
@@ -52,13 +50,11 @@ public class FruitSpawner : MonoBehaviour
 
     void DropFruit()
     {
-        Rigidbody2D rb = currentFruit.GetComponent<Rigidbody2D>();
-        rb.gravityScale = fallSpeed; 
-        fallSpeed += speedIncreaseRate; 
+        currentFruit.GetComponent<Rigidbody2D>().gravityScale = 1; // Enable gravity
         currentFruit = null;
-       // AudioManager.Instance.PlaySFX(AudioManager.Instance.dropSound);
         Invoke("SpawnFruit", 1f);
-        
+        // AudioManager.Instance.PlaySFX(AudioManager.Instance.dropSound);
+
     }
 
     public GameObject GetNextFruitPrefab(int nextLevel)
