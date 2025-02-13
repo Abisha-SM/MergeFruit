@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 3152807200753897045}
   - component: {fileID: 5084865167141250784}
   - component: {fileID: 5847509520693341157}
-  - component: {fileID: -2241949645577761336}
   - component: {fileID: 544876361764544605}
   - component: {fileID: 1992578900072034064}
+  - component: {fileID: 6791669198469949382}
+  - component: {fileID: 1523881058597749887}
   m_Layer: 0
   m_Name: Fruit_5
   m_TagString: Fruit
@@ -139,31 +140,18 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 2
-  m_Material: {fileID: 0}
+  m_GravityScale: 1
+  m_Material: {fileID: 6200000, guid: 9505502c157cc42bda7637e3539651e1, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-2241949645577761336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1683892143611584668}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1cd4d893498814abca78f6dbb567ab64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fruitLevel: 4
 --- !u!70 &544876361764544605
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -208,7 +196,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 1683892143611584668}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 9505502c157cc42bda7637e3539651e1, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -281,3 +269,47 @@ PolygonCollider2D:
       - {x: 0.79762703, y: -0.526328}
       - {x: 0.88, y: -0.62}
   m_UseDelaunayMesh: 0
+--- !u!114 &6791669198469949382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683892143611584668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c685fab65918b64c88ee74c399fa7f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fruitPrefabs:
+  - {fileID: 3763109273601547314, guid: a0e05dd680f254dbda9d53b307733479, type: 3}
+  - {fileID: 27812967533709455, guid: c2ca24c5979e14811b562696d1738fe7, type: 3}
+  - {fileID: 6039488250131380607, guid: 006c1c8d6a4bc47229983542049d0fb1, type: 3}
+  - {fileID: 3899292796011442927, guid: 7108a853f61ba4242ad66424208f3d6f, type: 3}
+  - {fileID: 1683892143611584668}
+  - {fileID: 405162560025886294, guid: c0d58b992e68b46259347d5568f7a59f, type: 3}
+  - {fileID: 7821498520356116695, guid: 097748650244f43fbaba540f36256fad, type: 3}
+  - {fileID: 6263256913761253715, guid: db71957c101294168a4a18694a32cb44, type: 3}
+  - {fileID: 9128181752598554351, guid: 3708196d0eff5441693af08722788432, type: 3}
+--- !u!114 &1523881058597749887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683892143611584668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 476f6cb27459539469e599a10434665f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fruitPrefabs:
+  - {fileID: 3763109273601547314, guid: a0e05dd680f254dbda9d53b307733479, type: 3}
+  - {fileID: 27812967533709455, guid: c2ca24c5979e14811b562696d1738fe7, type: 3}
+  - {fileID: 6039488250131380607, guid: 006c1c8d6a4bc47229983542049d0fb1, type: 3}
+  - {fileID: 3899292796011442927, guid: 7108a853f61ba4242ad66424208f3d6f, type: 3}
+  - {fileID: 1683892143611584668}
+  - {fileID: 405162560025886294, guid: c0d58b992e68b46259347d5568f7a59f, type: 3}
+  - {fileID: 7821498520356116695, guid: 097748650244f43fbaba540f36256fad, type: 3}
+  - {fileID: 6263256913761253715, guid: db71957c101294168a4a18694a32cb44, type: 3}
+  - {fileID: 9128181752598554351, guid: 3708196d0eff5441693af08722788432, type: 3}
