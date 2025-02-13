@@ -77,7 +77,7 @@ public class FailCondition : MonoBehaviour
     {
         if (collision.gameObject.name == "Fruit")
         {
-            Failure();
+            //Failure();
         }
     }
 

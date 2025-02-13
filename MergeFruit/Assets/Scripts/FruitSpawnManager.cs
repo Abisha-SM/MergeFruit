@@ -64,7 +64,10 @@ public class FruitSpawnManager : MonoBehaviour
         }
 
         currentFruitName = fruitPrefabs[fruitIndex].name;
-        GameObject fruit = Instantiate(fruitPrefabs[fruitIndex], transform.position, Quaternion.identity);
+
+        Quaternion randomRotation = Quaternion.Euler(0, 0, Random.Range(-15f, 15f));
+
+        GameObject fruit = Instantiate(fruitPrefabs[fruitIndex], transform.position, randomRotation);
         AudioManager.Instance.PlaySFX(AudioManager.Instance.spawnSound);
         fruit.name = "Fruit";
         fruit.GetComponent<Rigidbody2D>().isKinematic = true;
@@ -78,6 +81,7 @@ public class FruitSpawnManager : MonoBehaviour
         {
             fruit.name = currentFruitName;
             fruit.GetComponent<Rigidbody2D>().isKinematic = false;
+            fruit.GetComponent<Rigidbody2D>().gravityScale = 2f; // Increase gravity
             fruit.layer = 6;
             fruitExists = false;
             previousSpawnTime = Time.time;

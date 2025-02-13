@@ -10,6 +10,17 @@ public class CombineCheck : MonoBehaviour
 
     private Coroutine mergingCoroutine;
 
+    void Start()
+    {
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        rb.sharedMaterial = new PhysicsMaterial2D("Bouncy")
+        {
+            friction = 0.4f, // Increase friction to reduce movement
+            bounciness = 0.2f
+        };
+    }
+
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Fruit"))
@@ -18,18 +29,24 @@ public class CombineCheck : MonoBehaviour
 
             if (collision.gameObject.name == transform.gameObject.name)
             {
-                ScoreManager.instance.AddScore(1);
+                // Check if the impact force is strong enough
+                float impactForce = collision.relativeVelocity.magnitude;
+                float minMergeForce = 1.5f; // Increase for higher difficulty
 
-                AudioManager.Instance.PlaySFX(AudioManager.Instance.mergeSound);
-                
-                CombineCheck masterFruit = DetermineMasterFruit(collision.gameObject.GetComponent<CombineCheck>());
-                if (masterFruit == this)
+                if (impactForce >= minMergeForce)
                 {
-                    if (mergingCoroutine != null)
+                    ScoreManager.instance.AddScore(1);
+                    AudioManager.Instance.PlaySFX(AudioManager.Instance.mergeSound);
+
+                    CombineCheck masterFruit = DetermineMasterFruit(collision.gameObject.GetComponent<CombineCheck>());
+                    if (masterFruit == this)
                     {
-                        StopCoroutine(mergingCoroutine);
+                        if (mergingCoroutine != null)
+                        {
+                            StopCoroutine(mergingCoroutine);
+                        }
+                        mergingCoroutine = StartCoroutine(HandleCollision(collision));
                     }
-                    mergingCoroutine = StartCoroutine(HandleCollision(collision));
                 }
             }
         }

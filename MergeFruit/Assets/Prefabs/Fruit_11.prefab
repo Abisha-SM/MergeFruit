@@ -267,6 +267,7 @@ MonoBehaviour:
   - {fileID: 7821498520356116695, guid: 097748650244f43fbaba540f36256fad, type: 3}
   - {fileID: 6263256913761253715, guid: db71957c101294168a4a18694a32cb44, type: 3}
   - {fileID: 9128181752598554351}
+  canCheckBoundary: 0
 --- !u!114 &2300931736117047397
 MonoBehaviour:
   m_ObjectHideFlags: 0

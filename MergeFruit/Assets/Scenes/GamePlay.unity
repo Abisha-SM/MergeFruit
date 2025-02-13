@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18023343, g: 0.22565877, b: 0.3068574, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571337, b: 0.3069219, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1380,19 +1380,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1665787279}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52ea980aba4f044058b6ca3ec7b33f92, type: 3}
+  m_Script: {fileID: 11500000, guid: db50f25a96920497d982d02d513f57ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fruitPrefabs:
-  - {fileID: 3763109273601547314, guid: a0e05dd680f254dbda9d53b307733479, type: 3}
-  - {fileID: 27812967533709455, guid: c2ca24c5979e14811b562696d1738fe7, type: 3}
-  - {fileID: 6039488250131380607, guid: 006c1c8d6a4bc47229983542049d0fb1, type: 3}
-  - {fileID: 3899292796011442927, guid: 7108a853f61ba4242ad66424208f3d6f, type: 3}
-  - {fileID: 1683892143611584668, guid: 5c8595709f7ad49a4bcfcecba9c2e554, type: 3}
-  - {fileID: 405162560025886294, guid: c0d58b992e68b46259347d5568f7a59f, type: 3}
-  - {fileID: 7821498520356116695, guid: 097748650244f43fbaba540f36256fad, type: 3}
-  - {fileID: 6263256913761253715, guid: db71957c101294168a4a18694a32cb44, type: 3}
-  - {fileID: 9128181752598554351, guid: 3708196d0eff5441693af08722788432, type: 3}
+  isRunning: 1
+  fruitPrefabs: []
+  gameOverScreen: {fileID: 0}
+  topBoundary: {fileID: 0}
 --- !u!4 &1665787281
 Transform:
   m_ObjectHideFlags: 0
