@@ -18,7 +18,7 @@ public class FruitController : MonoBehaviour
     {
         if (rb.velocity.magnitude < 0.1f && !isMerging) 
         {
-            gameObject.tag = "SettledFruit"; 
+//            gameObject.tag = "SettledFruit"; 
         }
     }
 
@@ -47,12 +47,12 @@ public class FruitController : MonoBehaviour
         Destroy(otherFruit.gameObject);
         Destroy(gameObject);
 
-        GameObject nextFruitPrefab = FruitSpawner.instance.GetNextFruitPrefab(fruitLevel + 1);
+//        GameObject nextFruitPrefab = FruitSpawner.instance.GetNextFruitPrefab(fruitLevel + 1);
 
-        if (nextFruitPrefab != null)
+       /* if (nextFruitPrefab != null)
         {
             GameObject newFruit = Instantiate(nextFruitPrefab, transform.position, Quaternion.identity);
             newFruit.GetComponent<Rigidbody2D>().velocity = Vector2.down * 6f;
-        }
+        }*/
     }
 }

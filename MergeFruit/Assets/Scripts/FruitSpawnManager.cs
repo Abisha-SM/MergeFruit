@@ -65,6 +65,7 @@ public class FruitSpawnManager : MonoBehaviour
 
         currentFruitName = fruitPrefabs[fruitIndex].name;
         GameObject fruit = Instantiate(fruitPrefabs[fruitIndex], transform.position, Quaternion.identity);
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.spawnSound);
         fruit.name = "Fruit";
         fruit.GetComponent<Rigidbody2D>().isKinematic = true;
         fruitExists = true;

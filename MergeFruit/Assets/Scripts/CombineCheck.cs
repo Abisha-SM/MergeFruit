@@ -18,10 +18,10 @@ public class CombineCheck : MonoBehaviour
 
             if (collision.gameObject.name == transform.gameObject.name)
             {
-                // ToDO : Add  score logic here
-               
+                ScoreManager.instance.AddScore(1);
 
-                // Determine master fruit
+                AudioManager.Instance.PlaySFX(AudioManager.Instance.mergeSound);
+                
                 CombineCheck masterFruit = DetermineMasterFruit(collision.gameObject.GetComponent<CombineCheck>());
                 if (masterFruit == this)
                 {
@@ -52,17 +52,17 @@ public class CombineCheck : MonoBehaviour
 
             newFruit.GetComponent<CombineCheck>().canCheckBoundary = true;
 
-            // Make sure the rigidbody is not kinematic
+            
             newFruit.GetComponent<Rigidbody2D>().isKinematic = false;
 
-            // Delay the destruction of the current fruit
-            yield return new WaitForSeconds(0.1f); // Adjust the delay as needed
+            
+            yield return new WaitForSeconds(0.1f); 
             Destroy(gameObject);
 
             GameObject spawner = GameObject.Find("Spawner");
             if (spawner != null)
             {
-                // Play the sound effect  here, any pop sound
+                
             }
         }
     }
