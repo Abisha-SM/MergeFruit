@@ -39,6 +39,10 @@ public class FailCondition : MonoBehaviour
                 }
             }
         }
+        if (ScoreManager.instance.score >= 100)
+        {
+            Win();
+        }
     }
 
     public void Failure()
@@ -70,6 +74,21 @@ public class FailCondition : MonoBehaviour
         foreach (GameObject fruit in fruits)
         {
             StartCoroutine(DeleteFruitWithDelay(fruit));
+        }
+    }
+
+    public void Win()
+    {
+        GameObject winningScreen = GameObject.Find("Win Panel");
+        if (winningScreen != null)
+        {
+            Debug.Log("Win");
+            winningScreen.transform.position = Vector3.zero;
+            GameObject[] fruits = GameObject.FindGameObjectsWithTag("Fruit");
+            foreach (GameObject fruit in fruits)
+            {
+                StartCoroutine(DeleteFruitWithDelay(fruit));
+            }
         }
     }
 

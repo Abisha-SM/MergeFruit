@@ -98,11 +98,11 @@ public class GoogleLogin : MonoBehaviour
         yield return new WaitForSeconds(0.05f);  // Slight delay for smoother sign-in
         GoogleSignIn.DefaultInstance.SignIn().ContinueWith(
             OnAuthenticationFinished, TaskScheduler.Default);
-        // GoogleSignIn.DefaultInstance.SignIn().ContinueWith(
-        //   OnDetails, TaskScheduler.Default);
-        // yield return new WaitForSeconds(0.3f);
-        // SceneManager.LoadScene(1);
-        // StartCoroutine(GetTexture(imageURL));
+         GoogleSignIn.DefaultInstance.SignIn().ContinueWith(
+           OnDetails, TaskScheduler.Default);
+         yield return new WaitForSeconds(0.3f);
+         SceneManager.LoadScene(1);
+         StartCoroutine(GetTexture(imageURL));
         // Load a new scene after successful sign-in
     }
 
