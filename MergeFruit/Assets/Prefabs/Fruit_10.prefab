@@ -173,6 +173,7 @@ MonoBehaviour:
   - {fileID: 6263256913761253715}
   - {fileID: 9128181752598554351, guid: 3708196d0eff5441693af08722788432, type: 3}
   canCheckBoundary: 0
+  fruitlevel: 7
 --- !u!114 &7348977375034972097
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,6 +10,8 @@ public class CombineCheck : MonoBehaviour
 
     private Coroutine mergingCoroutine;
 
+    public int fruitlevel;
+
     void Start()
     {
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
@@ -35,7 +37,8 @@ public class CombineCheck : MonoBehaviour
 
                 if (impactForce >= minMergeForce)
                 {
-                    ScoreManager.instance.AddScore(1);
+                    AddScoreValue();
+                   // ScoreManager.instance.AddScore(1);
                     AudioManager.Instance.PlaySFX(AudioManager.Instance.mergeSound);
 
                     CombineCheck masterFruit = DetermineMasterFruit(collision.gameObject.GetComponent<CombineCheck>());
@@ -90,6 +93,22 @@ public class CombineCheck : MonoBehaviour
         if (mergingCoroutine != null)
         {
             StopCoroutine(mergingCoroutine);
+        }
+    }
+
+    public void AddScoreValue()
+    {
+        if (fruitlevel == 0||fruitlevel==1||fruitlevel==2 || fruitlevel == 3)
+        {
+            ScoreManager.instance.AddScore(0.5f);
+        }
+        else if(fruitlevel == 4 || fruitlevel == 5 || fruitlevel == 6)
+        {
+            ScoreManager.instance.AddScore(1.0f);
+        }
+        else
+        {
+            ScoreManager.instance.AddScore(1.5f);
         }
     }
 }

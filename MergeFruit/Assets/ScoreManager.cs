@@ -7,7 +7,7 @@ public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager instance;
     public TextMeshProUGUI scoreText;
-    public int score = 0;
+    public float score = 0;
     public Button back;
     public TextMeshProUGUI wintext;
     public Button play;
@@ -31,7 +31,7 @@ public class ScoreManager : MonoBehaviour
        
     }
 
-    public void AddScore(int points)
+    public void AddScore(float points)
     {
         score += points;
         scoreText.text = ""+score;
